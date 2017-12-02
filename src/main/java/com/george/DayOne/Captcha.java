@@ -1,4 +1,4 @@
-package com.george;
+package com.george.DayOne;
 
 import java.util.Arrays;
 

@@ -1,5 +1,6 @@
-package com.george;
+package com.george.DayOne;
 
+import com.george.DayOne.Captcha;
 import org.junit.Before;
 import org.junit.Test;
 

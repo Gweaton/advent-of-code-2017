@@ -1,5 +1,7 @@
 package com.george;
 
+import com.george.DayOne.Captcha;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
