@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner infile = new Scanner(new File("src/input.txt"));
+        Scanner infile = new Scanner(new File("src/resources/dayOneInput.txt"));
         String input = infile.nextLine();
 
         Captcha captcha = new Captcha();
