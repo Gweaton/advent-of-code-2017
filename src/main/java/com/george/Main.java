@@ -1,18 +1,17 @@
 package com.george;
 
-import com.george.DayOne.Captcha;
+import com.george.DayTwo.SpreadsheetChecksum;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner infile = new Scanner(new File("src/resources/dayOneInput.txt"));
-        String input = infile.nextLine();
+    public static void main(String[] args) throws IOException {
 
-        Captcha captcha = new Captcha();
-        System.out.println("Part One: " + captcha.inverseCaptchaPartOne(input));
-        System.out.println("Part Two: " + captcha.inverseCaptchaPartTwo(input));
+        SpreadsheetChecksum checksum = new SpreadsheetChecksum();
+
+
+        System.out.println(checksum.checkSum(checksum.getInput()));
     }
 }
