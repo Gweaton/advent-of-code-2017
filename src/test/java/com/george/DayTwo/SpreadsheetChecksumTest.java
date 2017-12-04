@@ -16,6 +16,12 @@ public class SpreadsheetChecksumTest {
     @Test
     public void shouldReturnSumOfDifferenceBetweenHighestAndLowestValueOfEachArray() throws Exception {
         String[] sampleInput = new String[]{"1 2 3", "4 5 6"};
-        assertEquals(4, checkSum.checkSum(sampleInput));
+        assertEquals(4, checkSum.checkSumPartOne(sampleInput));
+    }
+
+    @Test
+    public void shouldReturnSumOfDivisibleElementsInEachArray() throws Exception {
+        String[] sampleInput = new String[]{"5 9 2 8", "9 4 7 3", "3 8 6 5"};
+        assertEquals(9, checkSum.checkSumPartTwo(sampleInput));
     }
 }

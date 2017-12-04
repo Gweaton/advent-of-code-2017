@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class SpreadsheetChecksum {
-    public int checkSum(String[] input) {
+    public int checkSumPartOne(String[] input) {
         int[] finalValues = new int[input.length];
 
         for (int i = 0; i < input.length; i++) {
@@ -17,6 +17,31 @@ public class SpreadsheetChecksum {
         }
 
         return IntStream.of(finalValues).sum();
+    }
+
+    public int checkSumPartTwo(String[] input) {
+        int[] finalValues = new int[input.length];
+
+        for (int i = 0; i < input.length; i++) {
+            finalValues[i] = getResultOfDivisibleNumbersInArray(stringToIntArray(input[i]));
+        }
+
+        return IntStream.of(finalValues).sum();
+
+    }
+
+    private int getResultOfDivisibleNumbersInArray(int[] intArray) {
+        int total = 0;
+
+        for (int currentNumber : intArray) {
+            for (int numberToCheckAgainst : intArray) {
+                if (currentNumber != numberToCheckAgainst && currentNumber % numberToCheckAgainst == 0) { //if divisible
+                    total = currentNumber / numberToCheckAgainst;
+                }
+            }
+        }
+
+        return total;
     }
 
     private int[] stringToIntArray(String integerString) {
