@@ -1,6 +1,9 @@
 package com.george.DayOne;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Captcha {
     public int inverseCaptchaPartOne(String captcha) {
@@ -41,5 +44,10 @@ public class Captcha {
     private int[] stringToIntArray(String captcha) {
         String[] stringArray = captcha.split("");
         return Arrays.stream(stringArray).mapToInt(Integer::parseInt).toArray();
+    }
+
+    public String getInput() throws FileNotFoundException {
+        Scanner infile = new Scanner(new File("src/resources/dayOneInput.txt"));
+        return infile.nextLine();
     }
 }
