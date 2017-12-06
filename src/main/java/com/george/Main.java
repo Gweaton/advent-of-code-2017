@@ -8,5 +8,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         HighEntropyPassphrases passphrases = new HighEntropyPassphrases();
         System.out.println(passphrases.passphraseSolverPartOne(passphrases.getInput()));
+        System.out.println(passphrases.passphraseSolverPartTwo(passphrases.getInput()));
     }
 }

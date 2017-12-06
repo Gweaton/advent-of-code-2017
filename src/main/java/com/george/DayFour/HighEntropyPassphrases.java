@@ -7,14 +7,11 @@ import java.util.*;
 
 public class HighEntropyPassphrases {
     public long passphraseSolverPartOne(String[] input) {
-        return Arrays.stream(input).filter(this::validatePassphrase).count();
+        return Arrays.stream(input).filter(this::validatePassphraseForDuplicateValues).count();
     }
 
-    private boolean validatePassphrase(String passphrase) {
-        String[] passwords = passphrase.split(" ");
-        Set<String> uniquePasswords = new HashSet<>(Arrays.asList(passwords));
-
-        return uniquePasswords.size() == passwords.length;
+    public long passphraseSolverPartTwo(String[] input) {
+        return Arrays.stream(input).filter(this::validateForAnagrams).count();
     }
 
     public String[] getInput() throws IOException {
@@ -27,5 +24,31 @@ public class HighEntropyPassphrases {
         }
 
         return list.toArray(new String[0]);
+    }
+
+    private boolean validatePassphraseForDuplicateValues(String passphrase) {
+        String[] passwords = passphrase.split(" ");
+        Set<String> uniquePasswords = new HashSet<>(Arrays.asList(passwords));
+
+        return uniquePasswords.size() == passwords.length;
+    }
+
+    private boolean validateForAnagrams(String input) {
+        String[] splitInput = input.split(" ");
+        List<String> sortedStrings = new ArrayList<>();
+
+        createListOfSortedStrings(splitInput, sortedStrings);
+
+        Set<String> uniquePasswords = new HashSet<>(sortedStrings);
+        return uniquePasswords.size() == sortedStrings.size();
+    }
+
+    private void createListOfSortedStrings(String[] splitInput, List<String> sortedStrings) {
+        for(String word : splitInput) {
+            char[] characters = word.toCharArray();
+            Arrays.sort(characters);
+            String sortedWord = new String(characters);
+            sortedStrings.add(sortedWord);
+        }
     }
 }
