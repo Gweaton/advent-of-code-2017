@@ -16,6 +16,13 @@ public class MazeTest {
     @Test
     public void shouldCountNumberOfEscapesNeededToEscapeTheMaze() throws Exception {
         int[] jumpOffsets = new int[] { 0, 3, 0, 1, -3 };
-        assertEquals(5, maze.howManySteps(jumpOffsets));
+        assertEquals(5, maze.howManyStepsPartOne(jumpOffsets));
+    }
+
+    @Test
+    public void shouldCountNumberOfEscapesNeededToEscapePart2OfTheMaze() throws Exception {
+        int[] jumpOffsets = new int[] { 0, 3, 0, 1, -3 };
+        assertEquals(10, maze.howManyStepsPartTwo(jumpOffsets));
+
     }
 }

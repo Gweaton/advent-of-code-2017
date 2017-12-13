@@ -7,13 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Maze {
-    public int howManySteps(int[] jumpOffsets) {
+    public int howManyStepsPartOne(int[] jumpOffsets) {
         int arrayElementValue;
         int totalStepCount = 0;
 
         for (int i = 0; i < jumpOffsets.length;) {
             arrayElementValue = jumpOffsets[i];
             jumpOffsets[i] += 1;
+            i += arrayElementValue;
+            totalStepCount += 1;
+        }
+
+        return totalStepCount;
+    }
+
+    public int howManyStepsPartTwo(int[] jumpOffsets) {
+        int arrayElementValue;
+        int totalStepCount = 0;
+
+        for (int i = 0; i < jumpOffsets.length;) {
+            arrayElementValue = jumpOffsets[i];
+            jumpOffsets[i] += (arrayElementValue >= 3) ?  -1 : 1;
             i += arrayElementValue;
             totalStepCount += 1;
         }
