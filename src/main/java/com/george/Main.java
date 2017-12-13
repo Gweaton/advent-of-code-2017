@@ -1,13 +1,13 @@
 package com.george;
 
+import com.george.DayFive.Maze;
 import com.george.DayFour.HighEntropyPassphrases;
 
 import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        HighEntropyPassphrases passphrases = new HighEntropyPassphrases();
-        System.out.println(passphrases.passphraseSolverPartOne(passphrases.getInput()));
-        System.out.println(passphrases.passphraseSolverPartTwo(passphrases.getInput()));
+        Maze maze = new Maze();
+        System.out.println(maze.howManySteps(maze.getInput()));
     }
 }
