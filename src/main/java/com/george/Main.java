@@ -1,13 +1,13 @@
 package com.george;
 
-import com.george.DayFive.Maze;
+import com.george.DaySix.MemoryReallocation;
 
-import java.io.*;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Maze maze = new Maze();
-        System.out.println(maze.howManyStepsPartOne(maze.getInput()));
-        System.out.println(maze.howManyStepsPartTwo(maze.getInput()));
+        MemoryReallocation mem = new MemoryReallocation();
+        System.out.println(mem.partOne(mem.getInputList()));
     }
+
 }
