@@ -6,10 +6,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MemoryReallocation {
-
+    private ArrayList<List<Integer>> alreadySeen = new ArrayList<>();
+    private List<Integer> finalBank;
 
     public int partOne(List<Integer> banks) throws IOException {
-        ArrayList<List<Integer>> alreadySeen = new ArrayList<>();
         List<Integer> bankToAdd = banks;
         int count = 0;
 
@@ -23,8 +23,13 @@ public class MemoryReallocation {
             alreadySeen.add(distributedValues);
             count++;
         }
-
+        finalBank = bankToAdd; // side effect needs refactoring out
         return count;
+    }
+
+    public int partTwo(List<Integer> banks) throws IOException {
+        partOne(banks);
+        return alreadySeen.size() - 1 - alreadySeen.indexOf(finalBank);
     }
 
     public List<Integer> getInputList() throws IOException {

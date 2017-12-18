@@ -22,4 +22,11 @@ public class MemoryReallocationTest {
         ArrayList<Integer> banks = new ArrayList<>(Arrays.asList(banksArray));
         assertEquals(5, memoryReallocation.partOne(banks));
     }
+
+    @Test
+    public void shouldCountNumberOfCyclesSinceLastSeenCombination() throws Exception {
+        Integer[] banksArray = { 0, 2, 7, 0};
+        ArrayList<Integer> banks = new ArrayList<>(Arrays.asList(banksArray));
+        assertEquals(4, memoryReallocation.partTwo(banks));
+    }
 }
