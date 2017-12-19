@@ -1,4 +1,4 @@
-package com.george.DayOne;
+package com.george.Day1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -47,7 +47,7 @@ public class Captcha {
     }
 
     public String getInput() throws FileNotFoundException {
-        Scanner infile = new Scanner(new File("src/resources/dayOneInput.txt"));
+        Scanner infile = new Scanner(new File("src/resources/Day1Input.txt"));
         return infile.nextLine();
     }
 }

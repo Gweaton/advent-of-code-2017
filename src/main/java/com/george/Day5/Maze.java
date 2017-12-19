@@ -1,4 +1,4 @@
-package com.george.DayFive;
+package com.george.Day5;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -36,7 +36,7 @@ public class Maze {
     }
 
     public int[] getInput() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader("src/resources/dayFiveInput.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("src/resources/Day5Input.txt"));
         String str;
 
         List<String> list = new ArrayList<>();

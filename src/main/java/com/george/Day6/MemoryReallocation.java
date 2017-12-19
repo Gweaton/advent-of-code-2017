@@ -1,4 +1,4 @@
-package com.george.DaySix;
+package com.george.Day6;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class MemoryReallocation {
     }
 
     public List<Integer> getInputList() throws IOException {
-        Scanner infile = new Scanner(new File("src/resources/daySixInput.txt"));
+        Scanner infile = new Scanner(new File("src/resources/Day6Input.txt"));
         String input = infile.nextLine();
         return Arrays.stream(input.split("\\s"))
                 .map(Integer::valueOf)

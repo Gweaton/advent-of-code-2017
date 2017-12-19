@@ -1,4 +1,4 @@
-package com.george.DayTwo;
+package com.george.Day2;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -61,7 +61,7 @@ public class SpreadsheetChecksum {
     }
 
     public String[] getInput() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader("src/resources/dayTwoInput.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("src/resources/Day2Input.txt"));
         String str;
 
         List<String> list = new ArrayList<>();

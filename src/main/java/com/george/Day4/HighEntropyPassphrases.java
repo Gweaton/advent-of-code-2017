@@ -1,4 +1,4 @@
-package com.george.DayFour;
+package com.george.Day4;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +15,7 @@ public class HighEntropyPassphrases {
     }
 
     public String[] getInput() throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader("src/resources/dayFourInput.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("src/resources/Day4Input.txt"));
         String str;
 
         List<String> list = new ArrayList<>();

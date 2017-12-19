@@ -1,4 +1,4 @@
-package com.george.DayFive;
+package com.george.Day5;
 
 import org.junit.Before;
 import org.junit.Test;

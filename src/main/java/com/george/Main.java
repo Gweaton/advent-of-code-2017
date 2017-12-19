@@ -1,6 +1,6 @@
 package com.george;
 
-import com.george.DaySix.MemoryReallocation;
+import com.george.Day6.MemoryReallocation;
 
 import java.io.IOException;
 import java.util.List;
