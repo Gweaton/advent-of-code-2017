@@ -7,29 +7,27 @@ import java.util.stream.Collectors;
 
 public class MemoryReallocation {
     private ArrayList<List<Integer>> alreadySeen = new ArrayList<>();
-    private List<Integer> finalBank;
 
     public int partOne(List<Integer> banks) throws IOException {
-        List<Integer> bankToAdd = banks;
+        List<Integer> banksToAdd = banks;
         int count = 0;
 
         while (doesNotContainDuplicateMemoryBanks(alreadySeen)) {
-            Integer highestValue = Collections.max(bankToAdd);
-            int indexToReset = bankToAdd.indexOf(highestValue);
-            int startingIndex = indexToReset + 1;
-            List<Integer> highestValueRemoved = createNewListWithIndexSetToZero(bankToAdd, indexToReset);
-            List<Integer> distributedValues = distributeHighestValueAroundList(highestValueRemoved, highestValue, startingIndex);
-            bankToAdd = distributedValues;
-            alreadySeen.add(distributedValues);
+            List<Integer> balancedBanks = distributeHighestValueAroundList(banksToAdd);
+            banksToAdd = balancedBanks;
+            alreadySeen.add(balancedBanks);
             count++;
         }
-        finalBank = bankToAdd; // side effect needs refactoring out
         return count;
     }
 
     public int partTwo(List<Integer> banks) throws IOException {
         partOne(banks);
-        return alreadySeen.size() - 1 - alreadySeen.indexOf(finalBank);
+
+        int lastIndex = alreadySeen.size() - 1;
+        List<Integer> duplicateBanks = alreadySeen.get(lastIndex);
+
+        return alreadySeen.lastIndexOf(duplicateBanks) - alreadySeen.indexOf(duplicateBanks);
     }
 
     public List<Integer> getInputList() throws IOException {
@@ -40,16 +38,22 @@ public class MemoryReallocation {
                 .collect(Collectors.toList());
     }
 
-    private List<Integer> distributeHighestValueAroundList(List<Integer> banks, int value, int startingIndex) {
+    private List<Integer> distributeHighestValueAroundList(List<Integer> banks) {
+        int highestValue = Collections.max(banks);
+        int indexToReset = banks.indexOf(highestValue);
+        int startingIndex = indexToReset + 1;
+
+        List<Integer> listWithoutHighestValue = createNewListWithIndexSetToZero(banks, indexToReset);
+
         int count = 0;
-        for (int i = startingIndex; count < value; i++) {
-            if (i >= banks.size()) {
+        for (int i = startingIndex; count < highestValue; i++) {
+            if (i >= listWithoutHighestValue.size()) {
                 i = 0;
             }
-            banks.set(i, banks.get(i) + 1);
+            listWithoutHighestValue.set(i, listWithoutHighestValue.get(i) + 1);
             count++;
         }
-        return banks;
+        return listWithoutHighestValue;
     }
 
     private List<Integer> createNewListWithIndexSetToZero(List<Integer> banks, int index) {
@@ -62,7 +66,7 @@ public class MemoryReallocation {
     }
 
     private boolean doesNotContainDuplicateMemoryBanks(List<List<Integer>> list) {
-        Set<List<Integer>> set = new HashSet<>(list);
-        return set.size() == list.size();
+        Set<List<Integer>> noDuplicates = new HashSet<>(list);
+        return noDuplicates.size() == list.size();
     }
 }
